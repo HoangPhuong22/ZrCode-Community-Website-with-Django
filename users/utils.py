@@ -13,7 +13,7 @@ def paginatorPage(request, profiles, result):
         page = paginator.num_pages
         profiles = paginator.page(page)
     page = int(page)
-    leftIndex = page - 2
+    leftIndex = page - 3
     if leftIndex < 1:
         leftIndex = 1
     rightIndex = page + 3

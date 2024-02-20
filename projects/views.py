@@ -8,7 +8,7 @@ from django.contrib import messages
 
 def projects(request):
     projects, search_name = searchProjects(request)
-    projects, custom = paginatorPage(request, projects, 1)
+    projects, custom = paginatorPage(request, projects, 9)
         
     context = {'projects': projects, 'search_name': search_name, 'custom': custom}
     return render(request, 'projects/projects.html', context)

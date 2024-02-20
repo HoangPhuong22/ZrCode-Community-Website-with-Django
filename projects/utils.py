@@ -14,10 +14,10 @@ def paginatorPage(request, projects, result):
         page = paginator.num_pages
         projects = paginator.page(page)
     page = int(page)
-    leftIndex = page - 4
+    leftIndex = page - 3
     if leftIndex < 1:
         leftIndex =1
-    rightIndex = page + 5
+    rightIndex = page + 3
     if rightIndex > paginator.num_pages:
         rightIndex = paginator.num_pages
     return projects, range(leftIndex, rightIndex + 1)

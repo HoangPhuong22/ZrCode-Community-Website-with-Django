@@ -38,7 +38,7 @@
             <div class="header-action">
                 <!-- Logo account -->
                 {% if request.user.is_authenticated%}
-                <img src="{{ request.user.profile.imageURL }}" alt="" class="logo-account">
+                <a href="{% url 'user_account' %}"><img src="{{ request.user.profile.imageURL }}" alt="" class="logo-account"></a>
                 {% else %}
                 <!-- Login-->
                 <a href="{% url 'login' %}" class="btn">Login</a>
