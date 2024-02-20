@@ -1,0 +1,30 @@
+{% extends "main.html"%}
+
+{% block content %}
+
+<main class="home">
+    <section class="login">
+        <div class="container-form">
+            <div class="login__inner">
+                <div class="logo__message">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div class="message-inner">
+                    <h3 class="message__title">{{message.subject}}</h3>
+                    {% if message.sender %}
+                    <a href="{% url 'user_profile' message.sender.id  %}"><span class="owner__message">{{message.name}}</span></a>
+                    {% else %}
+                    <span class="owner__message">{{message.name}} | (Users do not register an account)</span>
+                    {% endif %}
+                    <p class="date__message">{{message.created}}</p>
+                    <p class="message__desc">
+                        {{message.body|linebreaksbr}}
+                    </p>
+                    <a href="{% url 'inbox' %}" class="back"><i class="fa-solid fa-square-caret-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

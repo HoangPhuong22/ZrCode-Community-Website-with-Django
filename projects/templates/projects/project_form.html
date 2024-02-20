@@ -1,0 +1,37 @@
+{% extends 'main.html'%}
+
+{% block content%} 
+    <main class="home">
+        <section class="login">
+            <div class="container-form">
+                <div class="login__inner">
+                    <div class="logo-login">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </div>
+                    <div class="title-login">
+                        <h3 class="login-title">Project</h3>
+                        <p class="login-desc">Hello Developer</p>
+                    </div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <div class="list-projects">
+                            <div class="skill">
+                                {% for tag in project.tags.all %}
+                                    <div class="skill__inner">
+                                        <span class="skill__title line-clamp break-all line-1">{{tag.name}} &#215;</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <label for="tags">Tags</label>
+                        <textarea class="input" name="newtags" id="tags"></textarea>
+                        <div class="login-submit">
+                            <input type="submit" value="Submit" class="btn btn-submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}

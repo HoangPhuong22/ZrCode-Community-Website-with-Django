@@ -1,0 +1,36 @@
+{% extends "main.html"%}
+
+{% block content %}
+<main class="home">
+    <section class="login">
+        <div class="container-form">
+            <div class="login__inner">
+                <div class="logo-login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+                <div class="title-login">
+                    <h3 class="login-title">Form Html</h3>
+                    <p class="login-desc">Hello Developer, Welcome Back!</p>
+                </div>
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                    {% if request.user.is_authenticated == False %}
+                    <label for="fullname">{{form.name.label}}</label>
+                    {{form.name}}
+                    <label for="fullname">{{form.email.label}}</label>
+                    {{form.email}}
+                    {% endif %}
+                    <label for="fullname">{{form.subject.label}}</label>
+                    {{form.subject}}
+                    <label for="fullname">{{form.body.label}}</label>
+                    {{form.body}}
+                    <div class="login-submit">
+                        <input type="submit" value="Submit" class="btn btn-submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

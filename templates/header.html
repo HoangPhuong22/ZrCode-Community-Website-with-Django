@@ -1,0 +1,85 @@
+{% load static %}
+<!-- Header PC -->
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <!-- Tablet/Mobile -->
+            <label for="menu-checkbox" class="toggle-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" fill="#fff"/>
+                  </svg>                      
+            </label>
+            <!-- Logo -->
+            <img src="{% static 'assets/img/logo.png' %}" class="logo" alt="">
+
+            <!-- Navbar -->
+            <nav class="navbar">
+                <ul class="navbar__list">
+                    <li class="navbar__item">
+                        <a href="{% url 'profiles' %}" class="navbar__link">Developers</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="{% url 'projects' %}" class="navbar__link">Projects</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li class="navbar__item">
+                        <a href="{% url 'inbox' %}" class="navbar__link">Inbox</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="{% url 'user_account'%}" class="navbar__link">My Account</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <!-- End nav -->
+
+            <!-- Header action -->
+            <div class="header-action">
+                <!-- Logo account -->
+                {% if request.user.is_authenticated%}
+                <img src="{{ request.user.profile.imageURL }}" alt="" class="logo-account">
+                {% else %}
+                <!-- Login-->
+                <a href="{% url 'login' %}" class="btn">Login</a>
+                {% endif %}
+            </div>
+            <!-- End Header action -->
+        </div>
+    </div>
+</header>
+<!-- End Header -->
+<!-- Header Tablet/Mobile -->
+<header class="header-mobile">
+    <input type="checkbox" name="" id="menu-checkbox" class="menu-checkbox" hidden>
+    <label for="menu-checkbox" class="menu-overlay">
+    </label>
+    <div class="menu-drawer">
+        <!-- Logo -->
+        <img src="{% static 'assets/img/logo.png' %}" class="logo-responsive" alt="">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <ul class="navbar__list">
+                <li class="navbar__item">
+                    <a href="{% url 'profiles' %}" class="navbar__link">Developers</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'projects' %}" class="navbar__link">Projects</a>
+                </li>
+            
+                {% if request.user.is_authenticated %}
+                <li class="navbar__item">
+                    <a href="{% url 'inbox' %}" class="navbar__link">Inbox</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'user_account'%}" class="navbar__link">My Account</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'logout' %}" class="navbar__link">Logout</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <!-- End nav -->
+    </div>
+</header>

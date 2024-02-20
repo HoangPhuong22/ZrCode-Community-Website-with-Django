@@ -1,0 +1,78 @@
+body {
+    background-color: #f8fafb;
+    margin: 0;
+}
+
+img
+{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+#projects-wrapper
+{
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 2em;
+    border: 1px solid #eaeaeb;
+    background-color: #fff;
+    border-radius:5px
+}
+.project--card
+{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 20px;
+    background-color: #aee5ae4e;
+    border: 2px solid #333;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.card--header
+{
+    margin-bottom: 10px;
+}
+.card--header h3
+{
+    font-size: 20px;
+    color: rgb(161, 7, 7);
+    font-weight: 600;
+}
+.vote--option
+{
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 2px;
+    background-color: rgb(8, 209, 8);
+}
+.vote--option:last-child
+{
+    background-color: rgb(209, 22, 22);
+}
+.gr:hover
+{
+    background-color: rgb(137, 245, 137);
+}
+.vote--option:last-child:hover
+{
+    background-color: rgb(238, 66, 66);
+}
+.vote--option:hover
+{
+    cursor: pointer;
+}
+
+#form-wrapper
+{
+    min-width: 600px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    border: 1px solid #eaeaeb;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 2em;
+    
+}

@@ -1,0 +1,59 @@
+{% extends 'main.html'%}
+
+{% block content %}
+<main class="home">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1 class="title">LINKING <span>DEVELOPERS</span> ACROSS THE GLOBAL CODE COMMUNITY</h1>
+            </div>
+            <div class="hero-search">
+                <form id="searchForm" action="{% url 'profiles' %}" method = "GET">
+                    <input class="input" type="text" name="search_name" value="{{search_name}}" placeholder="Search by developer name...">
+                    <input class="btn btn--submit" type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="list">
+        <div class="container">
+            <div class="row">
+                {% for profile in profiles %}
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                    <a href="{% url 'user_profile' profile.id %}">
+                        <div class="card__item">
+                            <div class="card__head">
+                                <img  class="card__img" src="{{profile.imageURL}}" alt="">
+                                <div class="card__content">
+                                    <h2 class="card__title line-clamp break-all line-1">{{profile.name}}</h2>
+                                    <p class="card__bio line-clamp break-all line-2">{{profile.short_intro}}</p>
+                                </div>
+                            </div>
+                            <div class="card__bottom">
+                                <p class="card__address line-clamp break-all line-1">Based in {{profile.location}} </p>
+                                <div class="card__inner">
+                                    <p class="card__desc line-clamp break-all">
+                                        {{profile.bio}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="skill">
+            
+                                <div class="list-skill">
+                                    {% for skill in profile.skill_set.all %}
+                                    <div class="skill__inner">
+                                        <span class="skill__title line-clamp break-all line-1">{{skill}}</span>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% include 'paginator.html' with queryset=profiles custom=custom%}
+</main>
+{% endblock %}

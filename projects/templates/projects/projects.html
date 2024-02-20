@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <main class="home">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="title">SEARCH FOR <span>PROJECTS</span></h1>
+                </div>
+                <div class="hero-search">
+                    <form id="searchForm" action="{% url 'projects' %}" method="GET">
+                        <input class="input" type="text" value="{{search_name}}" name="search_name" placeholder="Search by project name...">
+                        <input class="btn btn--submit" type="submit" value="Search">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="list-projects">
+            <div class="container">
+                <div class="row">
+                    {% for project in projects %}
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                        <div class="card__project">
+                            <a href="{% url 'detail_project' project.id %}">
+                                <div class="card__img-thumb">
+                                    <img src="{{project.imageURL}}" alt="" class="img-project">
+                                </div>
+                            </a>
+                            <div class="card__inner">
+                                <a href="{% url 'detail_project' project.id %}">
+                                    <h3 class="name line-clamp break-all line-1 line-clamp break-all line-1">{{project.title}}</h3>
+                                </a>
+                                <span class="owner line-clamp break-all line-1 line-clamp break-all line-1"><a href="{% url 'detail_project' project.id %}">By {{project.owner.name}}</a></span>
+                                <a href="{% url 'detail_project' project.id %}">
+                                    <p class="feedback line-clamp break-all line-1 line-clamp break-all line-1">{{project.vote_ratio}}% Postitive Feedback ({{project.vote_total}} Vote{{project.vote_total|pluralize:"s"}})</p>
+                                    <div class="skill">
+                                        {% for tag in project.tags.all %}
+                                            <div class="skill__inner">
+                                                <span class="skill__title line-clamp break-all line-1">{{tag.name}}</span>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        {% include 'paginator.html' with queryset=projects custom=custom%}
+    </main>
+{% endblock %}

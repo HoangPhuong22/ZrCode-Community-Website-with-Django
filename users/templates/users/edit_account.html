@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content%}
+<main class="home">
+    <section class="login">
+        <div class="container-form">
+            <div class="login__inner">
+                <div class="logo-login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+                <div class="title-login">
+                    <h3 class="login-title">Update Account</h3>
+                    <p class="login-desc">Hello Developer, Welcome Back!</p>
+                </div>
+                <form action="{% url 'edit_account' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div class="login-submit">
+                        <input type="submit" value="Submit" class="btn btn-submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

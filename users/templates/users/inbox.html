@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main class="home">
+    <section class="message">
+        <div class="container">
+            <div class="message-content">
+                <h3 class="title-message">NEW MESSAGES(<span>{{unreadCount}}</span>)</h3>
+                <ul class="list-message">
+                    {% for message in messageRequest %}
+                    {% if message.is_read == False%}
+                    <li class="message__inner no-message">
+                    {% else %}
+                    <li class="message__inner">
+                    {% endif %}
+                       <a href="{% url 'message' message.id %}">
+                            <span class="owner">{{message.name}}</span>
+                            <span class="content">{{message.subject}}</span>
+                            <span class="date">{{message.created}}</span>
+                       </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

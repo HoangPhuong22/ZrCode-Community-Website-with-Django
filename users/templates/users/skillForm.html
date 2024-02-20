@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main class="home">
+    <section class="login">
+        <div class="container-form">
+            <div class="login__inner">
+                <div class="logo-login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+                <div class="title-login">
+                    <h3 class="login-title">Skill</h3>
+                    <p class="login-desc">Hello Developer, Welcome Back!</p>
+                </div>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div class="login-submit">
+                        <input type="submit" value="Submit" class="btn btn-submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content%}

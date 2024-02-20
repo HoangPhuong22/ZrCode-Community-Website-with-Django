@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<main class="home">
+    <section class="main__projects">
+        <div class="container">
+            <div class="row row-reverse">
+                <div class="col-xl-8 col-lg-12 col-12">
+                    <div class="detail">
+                        <img src="{{project.imageURL}}" alt="" class="img__projects">
+                        <div class="content__name">
+                            <a href="{% url 'user_profile' project.owner.id %}"><h3 class="owner-project">{{project.owner.name}}</h3></a>
+                            <h3 class="project-name">{{project.title}}</h3>
+                        </div>
+                        <div class="about">
+                            <h3 class="about-name">ABOUT THE PROJECT</h3>
+                            <p class="about-desc">
+                                {{project.description}}
+                            </p>
+                        </div>
+                        <div class="feedback">
+                            <h3 class="feedback__name">FEEDBACK</h3>
+                            <p class="feedback__desc">{{project.vote_ratio}}% Postitive Feedback ({{project.vote_total}} Vote{{project.vote_total|pluralize:"s"}})</p>
+                            {% if request.user.profile.id in project.reviewers %}
+                            <p>You have already submitted your review for this project</p>
+                            {% elif request.user.profile == project.owner %}
+                            <p>You cannot review your own work</p>
+                            {% elif request.user.is_authenticated %}
+                            <form action="{% url 'detail_project' project.id %}" method="POST">
+                                {% csrf_token %}
+                                {{form.as_p}}
+                                <input type="submit" class="btn btn-submit" value="Comment">
+                            </form>
+                            {% else %}
+                             <a href="{% url 'login' %}">Please login to leave a review</a>
+                            {% endif %}
+                            <div class="comment">
+                                {% for review in project.review_set.all %}
+                                <div class="comment__inner">
+                                    <a href="{% url 'user_profile' review.owner.id %}"><img class="owner__comment" src="{{review.owner.imageURL}}" alt=""></a>
+                                    <div class="comment-content">
+                                        <a href="{% url 'user_profile' review.owner.id %}"><h3 class="comment-name">{{review.owner}}</h3></a>
+                                        <p class="comment-desc">
+                                            {{review.body|linebreaksbr}}
+                                        </p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-12 col-12">
+                    <div class="tools">
+                        <h3 class="title">TOOL & STACKS</h3>
+                        <div class="row">
+                            {% for tag in project.tags.all %}
+                            <div class="col-xl-4 col-lg-3 col-sm-4 col-4">
+                                <div class="skill">
+                                    <span class="skill__name line-clamp break-all line-1">{{tag.name}}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="source-code">
+                        <a href="{{project.source_link}}"><i class="fa-solid fa-arrow-up-from-bracket"></i> Source Code</a>
+                        <a href="{{project.demo_link}}"><i class="fa-solid fa-arrow-up-from-bracket"></i> Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

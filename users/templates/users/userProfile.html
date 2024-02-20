@@ -1,0 +1,98 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main class="home">
+    <section class="account">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-sm-12 col-12">
+                    <div class="account__inner">
+                        <img class="logo-acount" src="{{profile.imageURL}}" alt="">
+                        <h3 class="username">{{profile.name}}</h3>
+                        <p class="bio">{{profile.short_intro}}</p>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i>Based in {{profile.location}}</p>
+                        <div class="link__social">
+                            {% if profile.social_youtube %}
+                            <a href="{{profile.social_youtube}}"><i class="fa-brands fa-youtube"></i></a>
+                            {% endif %}
+                            {% if profile.social_facebook %}
+                            <a href="{{profile.social_facebook}}"><i class="fa-brands fa-facebook"></i></a>
+                            {% endif %}
+                            {% if profile.social_tiktok %}
+                            <a href="{{profile.social_tiktok}}"><i class="fa-brands fa-tiktok"></i></a>
+                            {% endif %}
+                            {% if profile.social_github %}
+                            <a href="{{profile.social_github}}"><i class="fa-brands fa-github"></i></a>
+                            {% endif %}
+                            {% if profile.social_twitter %}
+                            <a href="{{profile.social_twitter}}"><i class="fa-brands fa-twitter"></i></a>
+                            {% endif %}
+                            {% if profile.social_instagram %}
+                            <a href="{{profile.social_instagram}}"><i class="fa-brands fa-instagram"></i></a>
+                            {% endif %}
+                        </div>
+                        {% if request.user.profile.id != profile.id %}
+                        <a href="{% url 'create_message' profile.id %}"><input type="submit" class="btn btn-submit" value="Send Message"></a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-xl-8 col-sm-12 col-12">
+                    <div class="account__content">
+                        <div class="about-me">
+                            <h3 class="about-me__name">About Me</h3>
+                            <p class="about__description">
+                                {{profile.bio}} 
+                            </p>
+                        </div>
+                        <div class="skill-me">
+                            <div class="skill-top">
+                                <h3 class="title">Skills</h3>
+                            </div>
+                            <div class="skill-mid">
+                                <div class="list-skill">
+                                    {% for skill in profile.skill_set.all %}
+                                    <div class="skill__row">
+                                        <div class="row">
+                                            <div class="col-md-12 col-12">
+                                                <div class="content-left">
+                                                    <p class="skill__name">{{skill}}</p>
+                                                    <p class="desc">{{skill.description}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="projects-me">
+                            <div class="project-top">
+                                <h3 class="title">Projects</h3>
+                            </div>
+                            <div class="project-mid">
+                                <div class="list-project">
+                                    {% for project in profile.project_set.all %}
+                                    <div class="project-item">
+                                        <div class="row">
+                                            <div class="col-md-12 col-12">
+                                                <div class="project__inner">
+                                                    <a href="{% url 'detail_project' project.id %}"><img src="{{project.imageURL}}" alt=""></a>
+                                                    <div class="content">
+                                                        <p class="name">{{project.title}}</p>
+                                                        <p class="desc">{{project.description}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}
