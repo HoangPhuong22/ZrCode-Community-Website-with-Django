@@ -1,0 +1,1050 @@
+*
+{
+    box-sizing: border-box;
+}
+html
+{
+    font-size: 62.5%;
+}
+body
+{
+    font-size: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+}
+input, textarea, select, button
+{
+    font-size: inherit;
+    font-family: inherit;
+}
+/* Start Common */
+a
+{
+    text-decoration: none;
+}
+.btn
+{
+    --height: 56px;
+    display: inline-block;
+    min-width: 130px;
+    height: var(--height);
+    line-height: var(--height);
+    border: 1px solid #ffffff;
+    border-radius:999px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-align: center;
+    color: #f8fafd;
+}
+.input.input[type='text'], .input.input[type='email'], .input.input[type='password'], .input.input[type='number'], textarea.input 
+{
+    min-width: 24rem;
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 2px solid #e5e7eb;
+    transition: all 0.3s ease-in-out;
+    background-color: #f8fafd;
+    outline: none;
+}
+
+.line-clamp
+{
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp, 6);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.line-clamp.line-2
+{
+    --line-clamp: 2;
+}
+.line-clamp.line-1
+{
+    --line-clamp: 1;
+}
+.break-all
+{
+    word-break: break-all;
+}
+/* End Common */
+
+
+/* Start Header */
+.header
+{
+    background-color: #152039;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.header__inner
+{
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__inner .logo
+{
+    height: 80px;
+    width: 80px;
+}
+.header__inner .logo-account
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    border: 2px solid #85bd7d;
+    object-fit: cover;
+}
+.header .navbar__list
+{
+    display: flex;
+}
+.navbar__link
+{
+    padding: 8px 24px;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: #fff;
+}
+.navbar__link:hover
+{
+    color: #ffffff;
+    text-shadow: 0.5px 0 0 currentColor;
+}
+
+/* End Header */
+
+/* Start Hero */
+
+.hero
+{
+    background-color:#152039;
+    padding: 40px 0;
+}
+.hero .hero-text
+{
+    margin: 0 auto;
+    width: 50%;
+}
+.hero .hero-text .title
+{
+    color: #e9e9e9;
+    font-weight: 600;
+    font-size: 4rem;
+    line-height: 1.3;
+    text-align: center;
+}
+.hero .hero-text span
+{
+    font-weight: 700;
+    color: #f04802;
+}
+.hero-search
+{
+    margin-top: 70px;
+}
+.hero-search .btn--submit
+{
+    background-color: #f04802;
+}
+.hero-search .btn--submit:hover
+{
+    background-color: #f5530e;
+    cursor: pointer;
+}
+.hero-search form
+{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+.hero-search form .input.input[type='text']
+{
+    width: 50rem;
+}
+.input.input[type='checkbox']
+{
+    font-size: 1.5rem;
+    color: #5aa5b9;
+}
+.input.input[type='text']:focus, 
+.input.input[type='email']:focus, 
+.input.input[type='password']:focus, 
+.input.input[type='number']:focus, 
+textarea.input:focus,
+.input.input[type='text']:focus
+{
+    border-color: #5aa5b9;
+}
+/* End Hero */
+
+/* Start list card */
+.list
+{
+    padding: 70px 0;
+    background-color: #F8FAFD;
+}
+.list .card__item
+{
+    background-color: #FFFEFD;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 30px;
+    height: 390px;
+}
+.list .card__item:hover
+{
+    border-color: #fff;
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s;
+}
+.list .card__head
+{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+.card__item .card__img
+{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #5aa5b9;
+}
+.card__content .card__title
+{
+    font-size: 2rem;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #2d2d39
+}
+.card__content .card__bio,
+.card__bottom .card__address
+{
+    font-size: 1.5rem;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #737373
+}
+.card__bottom
+{
+    margin-top: 10px;
+}
+.card__bottom .card__desc
+{
+    max-height: 135px;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #737373;
+}
+.list .list-skill
+{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+.list .card__inner
+{
+    height: 135px;
+    margin: 10px 0;
+}
+.list .skill__inner
+{
+    padding: 10px;
+    background-color: #e6faff;
+    border-radius: 15px;
+}
+.list .skill .skill__title
+{
+    max-width: 80px;
+    text-align: center;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: #5aa5b9;
+}
+/* End list card */
+
+
+
+
+
+/*Start Projects */
+
+.list-projects
+{
+    padding: 50px 0;
+}
+.list-projects .card__project
+{
+    height: 440px;
+    border-radius: 15px;
+    border: 2px solid #e5e7eb;
+    overflow: hidden;
+    transition: 0.9s ease;
+}
+.list-projects .card__project:hover
+{
+    border-color: #fff;
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.1);
+}
+.list-projects .card__project .card__inner
+{
+    padding: 5px 10px;
+}
+.list-projects .card__img-thumb
+{
+    height: 230px;
+    overflow: hidden;
+}
+.list-projects .card__project .img-project
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s ease;
+}
+.list-projects .card__project .img-project:hover
+{
+    transform: scale(1.2);
+}
+.card__project .card__inner .name
+{
+    font-weight: 700;
+    font-size: 2rem;
+    color: #2d2d39;
+    line-height: 1.5;
+}
+.card__project .owner a
+{
+    font-weight: 500;
+    font-size: 1.6rem;
+    color: #5aa5b9;
+    font-style: italic;
+    line-height: 1.5;
+}
+.card__project .feedback
+{
+    margin: 10px 0;
+    font-size: 1.8rem;
+    color: #737373;
+    line-height: 1.44;
+}
+.list-projects .skill
+{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.list-projects .skill__inner
+{
+    padding: 10px;
+    background-color: #e6faff;
+    border-radius: 15px;
+}
+.list-projects .skill .skill__title
+{
+    max-width: 80px;
+    text-align: center;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: #5aa5b9;
+}
+
+/* End Projects */
+
+
+
+
+
+
+/* Start Projects Detail */
+.row-reverse
+{
+    flex-direction: row-reverse;
+}
+.main__projects
+{
+    background-color: #F8FAFD;
+    padding: 30px 0;
+}
+.main__projects .title
+{
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.6;
+    color: #152039;
+}
+.main__projects .skill
+{
+    background-color: #EDEDFD;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 9999px;
+    max-width: 100px;
+}
+.main__projects .skill .skill__name
+{
+    font-size: 1.5rem;
+}
+.main__projects .img__projects
+{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+.main__projects .content__name
+{
+    padding: 20px 5px;
+}
+.main__projects .content__name .owner-project
+{
+    font-weight: 500;
+    font-size: 2rem;
+    color: #5aa5b9;
+    line-height: 1.5;
+}
+.main__projects .content__name .project-name
+{
+    font-weight: 700;
+    font-size: 4rem;
+    color: #2D2D39;
+    line-height: 1.4;
+}
+.main__projects .about
+{
+    padding: 10px 5px;
+}
+.main__projects .about-name
+{
+    color: #51546E;
+    font-size: 2.3rem;
+    line-height: 1.6;
+    font-weight: 700;
+}
+.main__projects .about-desc
+{
+    padding: 10px 0;
+    font-size: 1.6rem;
+    color: #51546E;
+    line-height: 1.6;
+}
+.main__projects .feedback 
+{
+    padding: 10px 5px;
+}
+.main__projects .feedback .feedback__name
+{
+    font-weight: 700;
+    font-size: 2.3rem;
+    color: #51546E;
+    line-height: 1.6;
+}
+.main__projects .feedback__desc
+{
+    padding: 5px 0;
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: #737373;
+}
+.input.input--textarea
+{
+    min-height: 14rem;
+    resize: none;
+    font-size: 1.5rem;
+    color: #737373;
+}
+.feedback .btn-submit
+{
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #152039;
+}
+.comment
+{
+    padding: 20px 5px;
+}
+.comment__inner
+{
+    padding: 15px 0;
+    display: flex;
+    align-items: flex-start;
+    column-gap: 15px;
+}
+.owner__comment
+{
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #5aa5b9;
+}
+.comment-content
+{
+    padding: 0 10px;
+}
+.comment-name
+{
+    font-weight: 600;
+    font-size: 1.9rem;
+    color: #5FA9C2;
+    line-height: 1.6;
+}
+.comment-desc
+{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #51546E;
+}
+/* End Projects Detail */
+
+
+/* Start Account */
+.account
+{
+    padding: 30px 0;
+    background-color: #F8FAFD;
+}
+.account .account__inner
+{
+    padding: 20px 10px;
+    background-color: #FFFEFD;
+    border: 2px solid #E5E7EB;
+    border-radius: 30px;
+}
+.account .account__inner .edit-link
+{
+    justify-content: center;
+    display: flex;
+    padding: 15px 0;
+}
+.account .account__inner .edit-link a
+{
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 999px;
+    background-color: #152039;
+    font-size: 1.4rem;
+    color: #e9e9e9;
+}
+.account .account__inner .edit-link i
+{
+    margin-right:5px;
+}
+.account .account__inner .logo-acount
+{
+   width: 200px;
+   height: 200px;
+   margin: 0 auto;
+   object-fit: cover;
+   border: 2px solid #5aa5b9;
+   border-radius: 999px;
+   display: block;
+}
+.account .account__inner .username
+{
+    font-weight: 700;
+    line-height: 1.6;
+    color: #2D2D39;
+    font-size: 3rem;
+    text-align: center;
+}
+.account .account__inner .bio
+{
+    padding: 0 20px;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #737373;
+}
+.account .account__inner .location
+{
+    margin-top: 10px;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: #737373;
+}
+.account .account__inner .location i
+{
+    margin-right: 10px;
+    color: #152039;
+}
+.account .account__inner .link__social
+{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+.account .account__inner .link__social i
+{
+    color: #152039;
+    font-size: 1.9rem;
+}
+.account .account__inner .btn-submit
+{
+    display: block;
+    margin: 40px auto 20px auto;
+    background-color: #152039;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+.account .account__content
+{
+    margin-left: 50px;
+}
+.about-me .about-me__name
+{
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 2.6rem;
+    color: #2d2d39;
+    line-height: 1.6;
+    padding-bottom: 10px;
+}
+.about-me .about__description
+{
+    color: #737373;
+    font-size: 1.7rem;
+    line-height: 1.6;
+}
+.skill-me
+{
+    margin-top: 50px;
+}
+.skill-me .skill-top
+{
+    display: flex;
+    justify-content: space-between;
+}
+.skill-me .skill-top .title
+{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    color: #2d2d39;
+    line-height: 1.6;
+    padding-bottom: 10px;
+}
+.skill-me .skill-top .add__skill 
+{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #152039;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: #e6faff;
+    border-radius: 10px;
+}
+.skill-mid
+{
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFFEFD;
+}
+.content-left .skill__name
+{
+    font-weight: 500;
+    font-size: 1.7rem;
+    color: #2d2d39;
+    padding: 10px 0;
+    line-height: 1.6;
+}
+.content-left .desc
+{
+    font-size: 1.6rem;
+    color: #2d2d39;
+    line-height: 1.6;
+}
+.content-right
+{
+    margin: 30px 0;
+}
+.content-right .Edit,
+.content-right .Delete
+{
+    display: block;
+    padding: 5px;
+    color: #51546E;
+}
+
+.projects-me
+{
+    margin-top: 50px;
+}
+.projects-me .project-top .title
+{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    color: #2d2d39;
+    line-height: 1.6;
+    padding-bottom: 10px;
+}
+.projects-me .project-top
+{
+    display: flex;
+    justify-content: space-between;
+}
+.projects-me .project-top .add__project 
+{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #152039;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: #e6faff;
+    border-radius: 10px;
+}
+.project-mid
+{
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #FFFEFD;
+    padding: 30px 10px;
+}
+.project__inner
+{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+.project__inner img
+{
+    margin-top: 10px;
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.project__inner .name
+{
+    font-weight: 500;
+    font-size: 1.7rem;
+    line-height: 1.6;
+}
+.project__inner .desc
+{
+    line-height: 1.4rem;
+    line-height: 1.6;
+    font-weight: 350;
+}
+.list-project .Edit,
+.list-project .Delete
+{
+    display: block;
+    margin: 10px 0;
+    color: #51546E;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+.project-item
+{
+    padding: 15px 0;
+}
+.ed__inner
+{
+    margin-top: 30px;
+}
+/* End Account */
+
+
+
+/* Start Inbox */
+
+.message
+{
+    background-color: #F8FAFD;
+}
+.message-content
+{
+    margin: 0 auto;
+    padding: 100px;
+}
+.message-content .title-message
+{
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #2d2d39;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 3rem;
+}
+.message-content .title-message span
+{
+    color :#5aa5b9;
+}
+.list-message
+{
+    padding: 10px 25px;
+    background-color: #FFFEFD;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+}
+
+.message-content .message__inner a
+{
+    display: flex;
+    gap: 10px;
+    padding: 15px 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #E5E7EB;
+}
+.message-content .owner
+{
+    width: 15%;
+}
+.message-content .content
+{
+    width: 70%;
+}
+.message-content .date
+{
+    width: 25%;
+}
+.message-content .owner ,
+.message-content .content,
+.message-content .date
+{
+    font-size: 1.7rem;
+    color: #2d2d39;
+    line-height: 1.6;
+    font-weight: 400;
+}
+.message__inner.no-message a span
+{
+    font-weight: 700;
+}
+
+
+
+/* End Inbox */
+
+/* Start Login */
+
+.login
+{
+    background-color: #F8FAFD;
+    padding: 30px 0;
+    height: 100vh;
+}
+.login__inner
+{
+    padding: 30px 20px;
+    background-color: #FFFEFD;
+    border-radius: 10px;
+    border: 2px solid #E5E7EB;
+}
+.login__inner .logo-login
+{
+    display: flex;
+    justify-content: center;
+}
+.login__inner i
+{
+    font-size: 6rem;
+}
+.login__inner .login-title
+{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #2d2d39;
+    line-height: 1.6;
+}
+.login__inner .login-desc
+{
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #737373;
+    line-height: 1.6;
+}
+form label
+{
+    font-size: 1.5rem;
+    padding: 10px 0;
+    display: inline-block;
+    color: #737373;
+}
+.input
+{
+    font-size: 1.5rem;
+    color: #737373;
+}
+.login-submit
+{
+    margin-top: 10px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.login-submit .btn-submit
+{
+    background-color: #152039;
+    border-radius: 10px;
+}
+.login-submit .forget a
+{
+    text-decoration: underline;
+    font-size: 1.6rem;
+    color: #5aa5b9;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.auth .auth-title
+{
+    color: #51546e;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.6;
+    padding: 10px 0;
+}
+.auth a
+{
+    color: #5aa5b9;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+/* End Login */
+
+
+/* Delete */
+
+.delete__inner
+{
+    background-color: #FFFEFD;
+    padding: 40px;
+    border: 1px solid #E5E7EB;
+    border-radius: 30px;
+}
+.logo-delete
+{
+    display: flex;
+    justify-content: center;
+}
+.logo-delete i
+{
+    font-size: 5rem;
+}
+.delete__desc
+{
+    color: #737373;
+    font-weight: 500;
+    font-size: 2rem;
+    text-align: center;
+    margin: 30px 0;
+}
+.delete__inner .btn-submit
+{
+    border-radius: 10px;
+    background-color: #152039;
+}
+.btn__inner
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Message */
+.logo__message
+{
+    display: flex;
+    justify-content: center;
+}
+.logo__message i
+{
+    font-size: 5rem;
+    color: #152039;
+}
+.message-inner
+{
+    margin-top: 15px;
+}
+.message-inner .message__title
+{
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #2d2d39;
+    padding: 20px 0;
+}
+.message-inner .owner__message
+{
+    font-size: 1.9rem;
+    color: #5aa5b9;
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.message-inner .date__message
+{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #737373;
+    margin-bottom: 10px;
+}
+.message-inner .message__desc
+{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #737373;
+    line-height: 1.6;
+}
+.message-inner .back i
+{
+    display: inline-block;
+    color: #152039;
+    font-size: 3rem;
+    padding-top: 30px;
+}
+
+/* Page */
+.home
+{
+    background-color: #F8FAFD;
+}
+ul.container
+{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.btn-page
+{
+    display: inline-block;
+    height: 50px;
+    min-width: 60px;
+    text-align: center;
+    padding: 0 15px;
+    background-color: #E8EAEE;
+    font-size: 1.5rem;
+    line-height: 50px;
+    font-weight: 700;
+    color: #152039;
+    border-radius: 6px;
+}
+.btn--sub
+{
+    background-color: #6A6C84;
+    color: #e5e7eb;
+}
