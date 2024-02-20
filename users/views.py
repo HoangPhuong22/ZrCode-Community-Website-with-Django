@@ -56,7 +56,7 @@ def registerUser(request):
 
 def profiles(request):
     profiles , search_name = searchProfiles(request)
-    profiles, custom = paginatorPage(request, profiles, 9)
+    profiles, custom = paginatorPage(request, profiles, 6)
     context = {'profiles': profiles, 'search_name': search_name, 'custom': custom}
     return render(request, 'users/profiles.html', context)
 
